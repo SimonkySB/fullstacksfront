@@ -1,0 +1,28 @@
+<div class="container">
+    <div style="display: flex; align-items: center; justify-content: center; height: 70vh;">
+        <form [formGroup]="form" style="max-width: 700px; width: 98%;">
+
+            <h4>Producto</h4>
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input class="form-control" formControlName="nombre">
+                <app-form-control-error [control]="form.controls.nombre"/>
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Precio</label>
+                <input class="form-control" formControlName="precio" type="number">
+                <app-form-control-error [control]="form.controls.precio"/>
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Categoría</label>
+                <input class="form-control" formControlName="categoria">
+                <app-form-control-error [control]="form.controls.categoria"/>
+            </div>
+        
+            <button class="btn btn-success" (click)="submit()" [disabled]="form.invalid">Guardar</button>
+            <button class="btn btn-danger" (click)="cancel()" >Cancelar</button>
+        </form>
+    </div>
+</div>

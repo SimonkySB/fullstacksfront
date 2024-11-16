@@ -1,0 +1,36 @@
+<div class="container">
+    <div style="display: flex; align-items: center; justify-content: center; height: 70vh;">
+
+        <form [formGroup]="form" style="max-width: 700px; width: 98%;">
+
+            <h4>REGISTRO</h4>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" [formControl]="form.controls.email" type="email">
+                <app-form-control-error [control]="form.controls.email"/>
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" [formControl]="form.controls.password" type="password">
+                <app-form-control-error [control]="form.controls.password"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre completo</label>
+                <input class="form-control" [formControl]="form.controls.fullname" type="text">
+                <app-form-control-error [control]="form.controls.fullname"/>
+            </div>
+        
+            <div class="d-grid gap-3">
+                <button class="btn btn-success" (click)="submit()" [disabled]="form.invalid">REGISTRARSE</button>
+                <button class="btn btn-primary" (click)="login()" >VOLVER</button>
+            </div>
+
+            
+        </form>
+    </div>
+    
+    
+</div>

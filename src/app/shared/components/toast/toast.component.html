@@ -1,0 +1,7 @@
+@if(config(); as cfg) {
+    @if (cfg) {
+        <ngb-toast header=" " [class]="cfg.classname" [autohide]="true" [delay]="3000" (hidden)="close()">
+            {{cfg.message}}
+        </ngb-toast>
+    }
+}

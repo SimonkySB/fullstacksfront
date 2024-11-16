@@ -1,0 +1,28 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "categoria": "comida",
+      "nombre": "Producto1",
+      "precio": 1234
+    },
+    {
+      "id": "2",
+      "nombre": "Producto2",
+      "precio": 1234,
+      "categoria": "comida"
+    },
+    {
+      "id": "3",
+      "nombre": "Producto3",
+      "precio": 1234,
+      "categoria": "limpieza"
+    },
+    {
+      "id": "4",
+      "nombre": "Producto4",
+      "precio": 1234,
+      "categoria": "limpieza"
+    }
+  ]
+}
