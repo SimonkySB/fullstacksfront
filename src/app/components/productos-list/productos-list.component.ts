@@ -60,7 +60,7 @@ export class ProductosListComponent implements OnInit{
   }
 
 
-  private load() {
+  load() {
     this.utils.loaderShow()
     return this.#productoService.list().pipe(
       finalize(() => {this.utils.loaderHide()}),

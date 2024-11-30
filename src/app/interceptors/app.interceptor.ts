@@ -10,9 +10,10 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
   const auth = inject(AuthService)
   const toast = inject(ToastService)
   
+  const token = auth.getToken();
 
-  if(req.url.startsWith(environment.apiUrl)){
-    req = req.clone({headers: req.headers.append('Authorization', `Bearer ${auth.getToken() ?? ""}`) });
+  if(req.url.startsWith(environment.apiUrl) && token){
+    req = req.clone({headers: req.headers.append('Authorization', `Bearer ${token}`) });
   }
 
   return next(req).pipe(
