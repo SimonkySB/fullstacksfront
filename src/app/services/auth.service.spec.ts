@@ -98,4 +98,27 @@ describe('AuthService', () => {
     expect(isAuthenticated).toBeFalse();
   });
 
+  it('should return roles from localStorage', () => {
+    spyOn(localStorage, 'getItem').and.returnValue('ADMIN');
+
+    const roles = service.getRoles();
+
+    expect(roles).toBe('ADMIN');
+    expect(localStorage.getItem).toHaveBeenCalledWith('roles');
+  });
+
+  it('should return true if role exists', () => {
+    spyOn(service, 'getRoles').and.returnValue('ADMIN');
+
+    const result = service.hasRole('ADMIN');
+    expect(result).toBeTrue();
+  });
+
+  it('should return false if role do not exists', () => {
+    spyOn(service, 'getRoles').and.returnValue('USER,ADMIN');
+
+    const result = service.hasRole('MANAGER');
+    expect(result).toBeFalse();
+  });
+
 });

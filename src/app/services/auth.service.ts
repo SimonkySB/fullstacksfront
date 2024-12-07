@@ -20,6 +20,7 @@ export class AuthService {
         return this.http.post<LoginResponse>(this.url + "/login", request).pipe(
             tap((res) => {
                 localStorage.setItem("accessToken", res.token)
+                localStorage.setItem("roles", res.roles)
             }),
         )
     }
@@ -32,6 +33,14 @@ export class AuthService {
     logout() {
         localStorage.removeItem("accessToken")
         this.router.navigate([PAGINAS.LOGIN], {replaceUrl: true})
+    }
+
+    hasRole(role: string){
+        return !!this.getRoles().split(",").find(r => r === role)
+    }
+
+    getRoles() {
+        return localStorage.getItem("roles") ?? ""
     }
 
 

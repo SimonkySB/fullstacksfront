@@ -6,11 +6,14 @@ import { PAGINAS } from './shared/paginas.const';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { authGuard } from './guards/auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { rolGuard } from './guards/rol.guard';
+import { ROLES } from './shared/roles.const';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: PAGINAS.PRODUCTOS,
+        redirectTo: PAGINAS.HOME,
         pathMatch: 'full'
     },
     {
@@ -32,17 +35,28 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             {
-                path: PAGINAS.PRODUCTOS,
-                component: ProductosListComponent
+                path: PAGINAS.HOME,
+                component: HomeComponent
             },
             {
-                path: PAGINAS.PRODUCTOS_CREAR,
-                component: ProductosFormComponent
-            },
-            {
-                path: PAGINAS.PRODUCTOS_EDIT + "/:id",
-                component: ProductosFormComponent
-            },
+                path: '',
+                canActivate: [rolGuard(ROLES.ADMIN)],
+                children: [
+                    {
+                        path: PAGINAS.PRODUCTOS,
+                        component: ProductosListComponent
+                    },
+                    {
+                        path: PAGINAS.PRODUCTOS_CREAR,
+                        component: ProductosFormComponent
+                    },
+                    {
+                        path: PAGINAS.PRODUCTOS_EDIT + "/:id",
+                        component: ProductosFormComponent
+                    },
+                ]
+            }
+            
         ]
     }
     

@@ -8,7 +8,7 @@ export const loginAccesGuard: CanActivateFn = (route, state) => {
   const router = inject(Router)
   
   if(authService.isAuthenticated()) {
-    router.navigate([PAGINAS.PRODUCTOS], {replaceUrl: true})
+    router.navigate([PAGINAS.HOME], {replaceUrl: true})
     return false;
   }
 

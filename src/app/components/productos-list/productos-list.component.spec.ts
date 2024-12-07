@@ -93,6 +93,11 @@ describe('ProductosListComponent', () => {
     component.logout();
     expect(authService.logout).toHaveBeenCalled();
   });
+
+  it('should call navigate with PAGINAS.HOME when back() is called', () => {
+    component.back();
+    expect(router.navigate).toHaveBeenCalledWith([PAGINAS.HOME]);
+  });
   
 
 });

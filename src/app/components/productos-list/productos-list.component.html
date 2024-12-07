@@ -2,7 +2,10 @@
 
     <div class="d-flex justify-content-between my-3">
         <h4>Gestión de productos</h4>
-        <button class="btn btn-danger" (click)="logout()">LOGOUT</button>
+        <div>
+            <button class="btn btn-danger" (click)="logout()">LOGOUT</button>
+            <button class="btn btn-primary" (click)="back()">VOLVER</button>
+        </div>
     </div>
 
     <button class="btn btn-primary" (click)="create()">NUEVO PRODUCTO</button>

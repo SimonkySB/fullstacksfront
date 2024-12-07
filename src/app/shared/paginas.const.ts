@@ -4,4 +4,5 @@ export const PAGINAS = {
     PRODUCTOS: "productos",
     PRODUCTOS_CREAR: "productos-create",
     PRODUCTOS_EDIT: "productos-edit",
+    HOME: "home"
 }

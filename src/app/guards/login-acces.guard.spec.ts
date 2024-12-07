@@ -39,14 +39,14 @@ describe('loginAccesGuard', () => {
     expect(result).toBeTrue();
   });
 
-  it('should deny activation and navigate to products when user is authenticated', () => {
+  it('should deny activation and navigate to home when user is authenticated', () => {
     authServiceSpy.isAuthenticated.and.returnValue(true);
 
     const result = executeGuard(mockRoute, mockState);
 
     expect(authServiceSpy.isAuthenticated).toHaveBeenCalled();
     expect(routerSpy.navigate).toHaveBeenCalledWith(
-      [PAGINAS.PRODUCTOS],
+      [PAGINAS.HOME],
       { replaceUrl: true }
     );
     expect(result).toBeFalse();

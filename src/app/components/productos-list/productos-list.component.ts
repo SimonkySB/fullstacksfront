@@ -72,4 +72,9 @@ export class ProductosListComponent implements OnInit{
     this.#auth.logout()
   }
 
+  back() {
+    this.#router.navigate([PAGINAS.HOME])
+  }
+    
+
 }
